@@ -15,7 +15,7 @@ get_catalog_nvss <-
 		z <- gsub( "\t" , "" , z )
 
 		# keep only the lines in the html code containing an ftp site
-		files <- z[ grep( 'https://ftp.cdc.gov/pub/Health_Statistics/NCHS/' , z ) ]
+		files <- z[ grep( 'ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/' , z ) ]
 		# this, i'm assuming, points to every file available for download.  cool.
 
 		catalog <-
