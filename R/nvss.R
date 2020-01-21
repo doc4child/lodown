@@ -15,16 +15,16 @@ get_catalog_nvss <-
 		z <- gsub( "\t" , "" , z )
 
 		# keep only the lines in the html code containing an ftp site
-		files <- z[ grep( 'ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/' , z ) ]
+		files <- z[ grep( 'ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/' , z ) ]
 		# this, i'm assuming, points to every file available for download.  cool.
 
 		catalog <-
 			rbind(
-				data.frame( type = 'natality' , year = 1999:nvss_max_year( "/natality/" , files ) , stringsAsFactors = FALSE ) ,
-				data.frame( type = 'periodlinked' , year = 2001:nvss_max_year( "/periodlinkedus/" , files ) , stringsAsFactors = FALSE ) ,
-				data.frame( type = 'cohortlinked' , year = 1995:nvss_max_year( "/cohortlinkedus/" , files ) , stringsAsFactors = FALSE ) ,
-				data.frame( type = 'mortality' , year = 2000:nvss_max_year( "/mortality/" , files ) , stringsAsFactors = FALSE ) ,
-				data.frame( type = 'fetaldeath' , year = 2005:nvss_max_year( "/fetaldeathus/" , files ) , stringsAsFactors = FALSE ) 
+				data.frame( type = 'natality' , year = 1999:2018 , stringsAsFactors = FALSE ) ,
+				data.frame( type = 'periodlinked' , year = 2001:2017 , stringsAsFactors = FALSE ) ,
+				data.frame( type = 'cohortlinked' , year = 1995:2015 , stringsAsFactors = FALSE ) ,
+				data.frame( type = 'mortality' , year = 2000:2017, stringsAsFactors = FALSE ) ,
+				data.frame( type = 'fetaldeath' , year = 2005:2017 , stringsAsFactors = FALSE ) 
 			)
 		
 		catalog$dbfile <- paste0( output_dir , "/SQLite.db" )
